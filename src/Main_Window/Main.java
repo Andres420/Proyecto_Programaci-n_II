@@ -1,5 +1,7 @@
 package Main_Window;
 
+import Game_1.Swimming_Race;
+
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.FlowLayout;
@@ -19,8 +21,8 @@ public class Main extends JApplet {
     private JPanel main_menu_center, main_menu_up, main_menu_down;
     private JLabel lbltittle;
     private JRadioButton jrboption1, jrboption2;
-    private JButton btniniciar;
-    private JFrame start;
+    private JButton btnstart;
+    private JFrame frame;
 
     public static void main(String[] args) {
         Main wd = new Main();
@@ -28,12 +30,12 @@ public class Main extends JApplet {
     }
 
     public void Windows() {
-        start = new JFrame("Juegos");
-        build(start.getContentPane());
-        start.pack();
-        start.setLocationRelativeTo(null);
-        start.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        start.setVisible(true);
+        frame = new JFrame("Juegos");
+        build(frame.getContentPane());
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
 
     }
 
@@ -59,7 +61,7 @@ public class Main extends JApplet {
         main_menu_up = new JPanel(new FlowLayout(FlowLayout.CENTER));
         main_menu_up.add(lbltittle);
     }
-    
+
     public void Components_1() {
         ButtonGroup buttonGroup = new ButtonGroup();
         jrboption1 = new JRadioButton("Juego de natación", false);
@@ -76,12 +78,15 @@ public class Main extends JApplet {
 
     public void Components_2() {
         main_menu_down = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        btniniciar = new JButton("Iniciar Juego");
+        btnstart = new JButton("Iniciar Juego");
         ActionListener listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (jrboption1.isSelected() == true) {
-                    JOptionPane.showMessageDialog(null, "Opcion1");
+                    frame.setVisible(false);
+
+                    Swimming_Race wd = new Swimming_Race();
+                    wd.InitWindows();
                     //start.setVisible(false);
                 } else if (jrboption2.isSelected() == true) {
                     JOptionPane.showMessageDialog(null, "Opcion2");
@@ -91,7 +96,7 @@ public class Main extends JApplet {
                 }
             }
         };
-        btniniciar.addActionListener(listener);
-        main_menu_down.add(btniniciar);
+        btnstart.addActionListener(listener);
+        main_menu_down.add(btnstart);
     }
 }
