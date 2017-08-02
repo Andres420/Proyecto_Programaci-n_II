@@ -9,7 +9,21 @@ public class Race {
     static int[] speed;
     static int speed_standart = 240;
 
-    public static void Register_Horses() {
+    public static void Restart() {
+        swimmer[0].setSpeed(speed_standart);
+        swimmer[1].setSpeed(speed_standart);
+        swimmer[2].setSpeed(speed_standart);
+        swimmer[3].setSpeed(speed_standart);
+        swimmer[4].setSpeed(speed_standart);
+
+        swimmer[0].setAdvance(15);
+        swimmer[1].setAdvance(15);
+        swimmer[2].setAdvance(15);
+        swimmer[3].setAdvance(15);
+        swimmer[4].setAdvance(15);
+    }
+
+    public static void Register_Swimmers() {
         rnd = new Random();
         swimmer = new Swimmer[5];
 
@@ -49,22 +63,34 @@ public class Race {
         swimmer[3].setCoorX(Swimming_Race.lblswimmer4.getLocation().x);
         swimmer[4].setCoorX(Swimming_Race.lblswimmer5.getLocation().x);
 
+        swimmer[0].setAdvance(15);
+        swimmer[1].setAdvance(15);
+        swimmer[2].setAdvance(15);
+        swimmer[3].setAdvance(15);
+        swimmer[4].setAdvance(15);
     }
 
-    public static void iniciar() {
+    public static void iniciar(boolean a,boolean b,boolean c,boolean d,boolean e) {
 
+        if(a == true){
         Thread_ h1 = new Thread_(swimmer[0].getName());
         h1.start();
-
+        }
+        if(b == true){
         Thread_ h2 = new Thread_(swimmer[1].getName());
         h2.start();
-
+        }
+        if(c == true){
         Thread_ h3 = new Thread_(swimmer[2].getName());
         h3.start();
-
+        }
+        if(d == true){
         Thread_ h4 = new Thread_(swimmer[3].getName());
         h4.start();
-
+        }
+        if(e == true){
         Thread_ h5 = new Thread_(swimmer[4].getName());
+        h5.start();
+        }
     }
 }

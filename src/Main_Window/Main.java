@@ -22,20 +22,26 @@ public class Main extends JApplet {
     private JLabel lbltittle;
     private JRadioButton jrboption1, jrboption2;
     private JButton btnstart;
-    private JFrame frame;
+    public JFrame Main_frame;
 
     public static void main(String[] args) {
         Main wd = new Main();
-        wd.Windows();
+        wd.Window();
     }
-
-    public void Windows() {
-        frame = new JFrame("Juegos");
-        build(frame.getContentPane());
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+    public void InitWindow(){
+        try{
+            Main_frame.setVisible(true);
+        }catch(Exception e){
+            Window();
+        }
+    }
+    public void Window() {
+        Main_frame = new JFrame("Juegos");
+        build(Main_frame.getContentPane());
+        Main_frame.pack();
+        Main_frame.setLocationRelativeTo(null);
+        Main_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Main_frame.setVisible(true);
 
     }
 
@@ -83,14 +89,14 @@ public class Main extends JApplet {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (jrboption1.isSelected() == true) {
-                    frame.setVisible(false);
+                    Main_frame.setVisible(false);
 
                     Swimming_Race wd = new Swimming_Race();
-                    wd.InitWindows();
-                    //start.setVisible(false);
+                    wd.InitWindow();
+                    
                 } else if (jrboption2.isSelected() == true) {
                     JOptionPane.showMessageDialog(null, "Opcion2");
-                    //start.setVisible(false);
+                    
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese una opcion valida");
                 }
