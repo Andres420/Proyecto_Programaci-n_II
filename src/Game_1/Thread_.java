@@ -6,6 +6,8 @@ import java.util.logging.Logger;
 
 public class Thread_ extends Thread {
 
+    public static boolean a=true, b=true, c=true, d=true, e=true;
+
     public Thread_(String name) {
         this.setName(name);
     }
@@ -14,8 +16,9 @@ public class Thread_ extends Thread {
     public void run() {
 
         if (getName().equals("Michael Phelps")) {
-
+            
             int ti = (int) System.currentTimeMillis() / 1000;
+            long ti_long = System.currentTimeMillis();
 
             for (int j = 0; j < 99; j++) {
                 try {
@@ -26,10 +29,14 @@ public class Thread_ extends Thread {
                     if (Swimming_Race.lblswimmer1.getLocation().x > Swimming_Race.lblline.getLocation().x) {
                         int tf = (int) System.currentTimeMillis() / 1000;
                         int tt = tf - ti;
-                        Race.swimmer[0].setTime(tt);
-                        //Agregar el tiempo si quiero
-                        //frmInicio.txtR.append("\n" + this.getName() + ":" + carrera.losCaballos[0].getTiempo() + " ms");
+                        long tf_long = System.currentTimeMillis();
+                        long tt_long = tf_long - ti_long;
+                        Race.swimmer[0].setTime(tt_long);
                         j = 99;
+                        a = true;
+                        Reports rep  = new Reports();
+                        rep.Time(tt);
+                        rep.Report("Michael Phelps");
                     } else {
                         j++;
                     }
@@ -40,12 +47,13 @@ public class Thread_ extends Thread {
             }
 
             Swimming_Race.lblswimmer1.setLocation(Swimming_Race.lblswimmer1.getLocation().x, Swimming_Race.lblswimmer1.getLocation().y);
-
             this.stop();
         }
 
         if (getName().equals("Ian Thorphe")) {
+            
             int ti = (int) System.currentTimeMillis() / 1000;
+            long ti_long =  System.currentTimeMillis();
             for (int j = 0; j < 99; j++) {
                 try {
                     Swimming_Race.lblswimmer2.setLocation(Swimming_Race.lblswimmer2.getLocation().x + Race.swimmer[1].getAdvance(), Swimming_Race.lblswimmer2.getLocation().y);
@@ -55,10 +63,14 @@ public class Thread_ extends Thread {
                     if (Swimming_Race.lblswimmer2.getLocation().x > Swimming_Race.lblline.getLocation().x) {
                         int tf = (int) System.currentTimeMillis() / 1000;
                         int tt = tf - ti;
-                        Race.swimmer[1].setTime(tt);
-                        //Agregar tiempo si quiero
-                        //frmInicio.txtR.append("\n" + this.getName() + ":" + carrera.losCaballos[1].getTiempo() + " ms");
+                        long tf_long = System.currentTimeMillis();
+                        long tt_long = tf_long - ti_long;
+                        Race.swimmer[1].setTime(tt_long);
                         j = 99;
+                        b = true;
+                        Reports rep  = new Reports();
+                        rep.Time(tt);
+                        rep.Report("Ian Thorphe");
                     } else {
                         j++;
                     }
@@ -72,7 +84,9 @@ public class Thread_ extends Thread {
         }
 
         if (getName().equals("Ryan Lochte")) {
+            
             int ti = (int) System.currentTimeMillis() / 1000;
+            long ti_long =  System.currentTimeMillis();
             for (int j = 0; j < 99; j++) {
                 try {
                     Swimming_Race.lblswimmer3.setLocation(Swimming_Race.lblswimmer3.getLocation().x + Race.swimmer[2].getAdvance(), Swimming_Race.lblswimmer3.getLocation().y);
@@ -82,10 +96,14 @@ public class Thread_ extends Thread {
                     if (Swimming_Race.lblswimmer3.getLocation().x > Swimming_Race.lblline.getLocation().x) {
                         int tf = (int) System.currentTimeMillis() / 1000;
                         int tt = tf - ti;
-                        Race.swimmer[2].setTime(tt);
-                        //Agregar tiempo si quiero
-                        //frmInicio.txtR.append("\n" + this.getName() + ":" + carrera.losCaballos[2].getTiempo() + " ms");
+                        long tf_long = System.currentTimeMillis();
+                        long tt_long = tf_long - ti_long;
+                        Race.swimmer[2].setTime(tt_long);
                         j = 99;
+                        c = true;
+                        Reports rep  = new Reports();
+                        rep.Time(tt);
+                        rep.Report("Ryan Lochte");
                     } else {
                         j++;
                     }
@@ -99,7 +117,9 @@ public class Thread_ extends Thread {
         }
 
         if (getName().equals("Mark Spitz")) {
+            
             int ti = (int) System.currentTimeMillis() / 1000;
+            long ti_long =  System.currentTimeMillis();
             for (int j = 0; j < 99; j++) {
                 try {
                     Swimming_Race.lblswimmer4.setLocation(Swimming_Race.lblswimmer4.getLocation().x + Race.swimmer[3].getAdvance(), Swimming_Race.lblswimmer4.getLocation().y);
@@ -109,10 +129,14 @@ public class Thread_ extends Thread {
                     if (Swimming_Race.lblswimmer4.getLocation().x > Swimming_Race.lblline.getLocation().x) {
                         int tf = (int) System.currentTimeMillis() / 1000;
                         int tt = tf - ti;
-                        Race.swimmer[3].setTime(tt);
-                        //Agregar tiempo si quiero
-                        //frmInicio.txtR.append("\n" + this.getName() + ":" + carrera.losCaballos[3].getTiempo() + " ms");
+                        long tf_long = System.currentTimeMillis();
+                        long tt_long = tf_long - ti_long;
+                        Race.swimmer[3].setTime(tt_long);
                         j = 99;
+                        d = true;
+                        Reports rep  = new Reports();
+                        rep.Time(tt);
+                        rep.Report("Mark Spitz");
                     } else {
                         j++;
                     }
@@ -125,8 +149,9 @@ public class Thread_ extends Thread {
             this.stop();
         }
         if (getName().equals("Alexander Popov")) {
-
+           
             int ti = (int) System.currentTimeMillis() / 1000;
+            long ti_long =  System.currentTimeMillis();
 
             for (int j = 0; j < 99; j++) {
                 try {
@@ -137,10 +162,14 @@ public class Thread_ extends Thread {
                     if (Swimming_Race.lblswimmer5.getLocation().x > Swimming_Race.lblline.getLocation().x) {
                         int tf = (int) System.currentTimeMillis() / 1000;
                         int tt = tf - ti;
-                        Race.swimmer[4].setTime(tt);
-                        //Agregar el tiempo si quiero
-                        //frmInicio.txtR.append("\n" + this.getName() + ":" + carrera.losCaballos[4].getTiempo() + " ms");
+                        long tf_long = System.currentTimeMillis();
+                        long tt_long = tf_long - ti_long;
+                        Race.swimmer[4].setTime(tt_long);
                         j = 99;
+                        e = true;
+                        Reports rep  = new Reports();
+                        rep.Time(tt);
+                        rep.Report("Alexander Popov");
                     } else {
                         j++;
                     }
@@ -151,7 +180,6 @@ public class Thread_ extends Thread {
             }
 
             Swimming_Race.lblswimmer5.setLocation(Swimming_Race.lblswimmer5.getLocation().x, Swimming_Race.lblswimmer5.getLocation().y);
-
             this.stop();
         }
 

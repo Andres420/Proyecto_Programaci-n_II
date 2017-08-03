@@ -7,20 +7,18 @@ import javax.swing.*;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
 
 public class Swimming_Race extends JApplet {
-
     public static JLabel lblflag, lblline, lblswimmer1,
             lblswimmer2, lblswimmer3, lblswimmer4, lblswimmer5;
     private JPanel pane_game_center, pane_game_up, pane_game_left, pane_game_right, pane_game_down;
     public static JButton btnstart, btnrestart, btnback;
-    private JLabel lbltimer, lblreport_1, lblreport_2, lblreport_3, lblreport_4, lblreport_5;
+    static JLabel lbltimer, lblreport_1, lblreport_2, lblreport_3, lblreport_4, lblreport_5;
     public JFrame frame;
-    public JRadioButton jrbswimmer1, jrbswimmer2, jrbswimmer3, jrbswimmer4, jrbswimmer5;
+    public static JRadioButton jrbswimmer1, jrbswimmer2, jrbswimmer3, jrbswimmer4, jrbswimmer5;
     public static JLabel lblseparator, lblseparator_1, lblseparator_2, lblseparator_3, lblseparator_4, lblseparator_5;
     boolean a, b, c, d, e;
+    public static int games = 0;
 
     public void InitWindow() {
         try {
@@ -32,7 +30,7 @@ public class Swimming_Race extends JApplet {
             lblswimmer3.setText(Race.swimmer[2].getName());
             lblswimmer4.setText(Race.swimmer[3].getName());
             lblswimmer5.setText(Race.swimmer[4].getName());
-        } catch (Exception e) {
+        } catch (Exception ev) {
             Windows();
             btnstart.setEnabled(true);
             Race.Register_Swimmers();
@@ -68,21 +66,6 @@ public class Swimming_Race extends JApplet {
         pane.add(pane_game_right, BorderLayout.EAST);
         pane.add(pane_game_center, BorderLayout.CENTER);
         pane.add(pane_game_down, BorderLayout.SOUTH);
-
-        MouseMotionListener ml = new MouseMotionListener() {
-            @Override
-            public void mouseDragged(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseMoved(MouseEvent e) {
-                lblreport_1.setText("x = " + e.getX());
-                lblreport_2.setText("y = " + e.getY());
-            }
-        };
-        this.addMouseMotionListener(ml);
-
     }
 
     @Override
@@ -97,7 +80,6 @@ public class Swimming_Race extends JApplet {
         jrbswimmer3 = new JRadioButton("Ryan Lochte", false);
         jrbswimmer4 = new JRadioButton("Mark Spitz", false);
         jrbswimmer5 = new JRadioButton("Alexander Popov", false);
-        //jrbswimmer1.
         pane_game_up.add(jrbswimmer1);
         pane_game_up.add(jrbswimmer2);
         pane_game_up.add(jrbswimmer3);
@@ -109,11 +91,11 @@ public class Swimming_Race extends JApplet {
     public void Components_1() {
         pane_game_left = new JPanel();
         pane_game_left.setLayout(new BoxLayout(pane_game_left, BoxLayout.Y_AXIS));
-        pane_game_left.add(lblreport_1 = new JLabel("Reporte 1"));
-        pane_game_left.add(lblreport_2 = new JLabel("Reporte 2"));
-        pane_game_left.add(lblreport_3 = new JLabel("Con más victorias es: " + System.lineSeparator()));
-        pane_game_left.add(lblreport_4 = new JLabel("Con más derrotas es:" + System.lineSeparator()));
-        pane_game_left.add(lblreport_5 = new JLabel("Empates registrados: "));
+        pane_game_left.add(lblreport_1 = new JLabel("Ganadas por jugador: "+System.lineSeparator()+""));
+        pane_game_left.add(lblreport_2 = new JLabel("Veces jugadas: 0"));
+        pane_game_left.add(lblreport_3 = new JLabel("Con más victorias es: " + System.lineSeparator()+""));
+        pane_game_left.add(lblreport_4 = new JLabel("Con más derrotas es:" + System.lineSeparator()+""));
+        pane_game_left.add(lblreport_5 = new JLabel("Empates registrados: 0"));
 
     }
 
@@ -127,7 +109,7 @@ public class Swimming_Race extends JApplet {
         ActionListener button_btnstart = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ev) {
-
+                games++;
                 if (jrbswimmer1.isSelected() == true) {
                     a = true;
                 }
@@ -143,6 +125,11 @@ public class Swimming_Race extends JApplet {
                 if (jrbswimmer5.isSelected() == true) {
                     e = true;
                 }
+                jrbswimmer1.setEnabled(false);
+                jrbswimmer2.setEnabled(false);
+                jrbswimmer3.setEnabled(false);
+                jrbswimmer4.setEnabled(false);
+                jrbswimmer5.setEnabled(false);
                 Race.iniciar(a, b, c, d, e);
                 a = false;
                 b = false;
@@ -150,7 +137,7 @@ public class Swimming_Race extends JApplet {
                 d = false;
                 e = false;
                 btnstart.setEnabled(false);
-                btnrestart.setEnabled(true);
+                btnrestart.setEnabled(false);
                 btnback.setEnabled(false);
             }
 
@@ -172,12 +159,24 @@ public class Swimming_Race extends JApplet {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Race.Restart();
+                jrbswimmer1.setSelected(false);
+                jrbswimmer2.setSelected(false);
+                jrbswimmer3.setSelected(false);
+                jrbswimmer4.setSelected(false);
+                jrbswimmer5.setSelected(false);
+                jrbswimmer1.setEnabled(true);
+                jrbswimmer2.setEnabled(true);
+                jrbswimmer3.setEnabled(true);
+                jrbswimmer4.setEnabled(true);
+                jrbswimmer5.setEnabled(true);
+                lbltimer.setText("Duracion de la carrera:");
                 lblswimmer1.setLocation(Race.swimmer[0].getCoorX(), Race.swimmer[0].getCoorY());
                 lblswimmer2.setLocation(Race.swimmer[1].getCoorX(), Race.swimmer[1].getCoorY());
                 lblswimmer3.setLocation(Race.swimmer[2].getCoorX(), Race.swimmer[2].getCoorY());
                 lblswimmer4.setLocation(Race.swimmer[3].getCoorX(), Race.swimmer[3].getCoorY());
                 lblswimmer5.setLocation(Race.swimmer[4].getCoorX(), Race.swimmer[4].getCoorY());
                 btnstart.setEnabled(true);
+                btnrestart.setEnabled(false);
                 btnback.setEnabled(true);
             }
 
@@ -274,7 +273,7 @@ public class Swimming_Race extends JApplet {
 
     public void Components_4() {
         pane_game_down = new JPanel();
-        lbltimer = new JLabel("0");
+        lbltimer = new JLabel("Duracion de la carrera:");
         pane_game_down.add(lbltimer);
 
     }

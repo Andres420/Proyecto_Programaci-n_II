@@ -41,7 +41,7 @@ public class Swimmer {
         return time;
     }
 
-    public void setTime(int time) {
+    public void setTime(long time) {
         this.time = time;
     }
 

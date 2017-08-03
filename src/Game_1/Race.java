@@ -11,16 +11,16 @@ public class Race {
 
     public static void Restart() {
         swimmer[0].setSpeed(speed_standart);
-        swimmer[1].setSpeed(speed_standart);
+        swimmer[1].setSpeed(230);
         swimmer[2].setSpeed(speed_standart);
-        swimmer[3].setSpeed(speed_standart);
-        swimmer[4].setSpeed(speed_standart);
+        swimmer[3].setSpeed(250);
+        swimmer[4].setSpeed(100);
 
-        swimmer[0].setAdvance(15);
-        swimmer[1].setAdvance(15);
-        swimmer[2].setAdvance(15);
-        swimmer[3].setAdvance(15);
-        swimmer[4].setAdvance(15);
+        swimmer[0].setAdvance(10);
+        swimmer[1].setAdvance(10);
+        swimmer[2].setAdvance(10);
+        swimmer[3].setAdvance(10);
+        swimmer[4].setAdvance(10);
     }
 
     public static void Register_Swimmers() {
@@ -40,10 +40,10 @@ public class Race {
         swimmer[4].setName("Alexander Popov");
 
         swimmer[0].setSpeed(speed_standart);
-        swimmer[1].setSpeed(speed_standart);
+        swimmer[1].setSpeed(230);
         swimmer[2].setSpeed(speed_standart);
-        swimmer[3].setSpeed(speed_standart);
-        swimmer[4].setSpeed(speed_standart);
+        swimmer[3].setSpeed(250);
+        swimmer[4].setSpeed(100);
 
         swimmer[0].setTime(0);
         swimmer[1].setTime(0);
@@ -63,34 +63,40 @@ public class Race {
         swimmer[3].setCoorX(Swimming_Race.lblswimmer4.getLocation().x);
         swimmer[4].setCoorX(Swimming_Race.lblswimmer5.getLocation().x);
 
-        swimmer[0].setAdvance(15);
-        swimmer[1].setAdvance(15);
-        swimmer[2].setAdvance(15);
-        swimmer[3].setAdvance(15);
-        swimmer[4].setAdvance(15);
+        swimmer[0].setAdvance(10);
+        swimmer[1].setAdvance(10);
+        swimmer[2].setAdvance(10);
+        swimmer[3].setAdvance(10);
+        swimmer[4].setAdvance(10);
     }
 
-    public static void iniciar(boolean a,boolean b,boolean c,boolean d,boolean e) {
+    public static void iniciar(boolean a, boolean b, boolean c, boolean d, boolean e) {
 
-        if(a == true){
-        Thread_ h1 = new Thread_(swimmer[0].getName());
-        h1.start();
+        if (a == true) {
+            Thread_ h1 = new Thread_(swimmer[0].getName());
+           Thread_.a = false;
+            h1.start();
         }
-        if(b == true){
-        Thread_ h2 = new Thread_(swimmer[1].getName());
-        h2.start();
+        if (b == true) {
+            Thread_ h2 = new Thread_(swimmer[1].getName());
+            Thread_.b = false;
+            h2.start();
         }
-        if(c == true){
-        Thread_ h3 = new Thread_(swimmer[2].getName());
-        h3.start();
+        if (c == true) {
+            Thread_ h3 = new Thread_(swimmer[2].getName());
+            Thread_.c = false;
+            h3.start();
         }
-        if(d == true){
-        Thread_ h4 = new Thread_(swimmer[3].getName());
-        h4.start();
+        if (d == true) {
+            Thread_ h4 = new Thread_(swimmer[3].getName());
+            Thread_.d = false;
+            h4.start();
         }
-        if(e == true){
-        Thread_ h5 = new Thread_(swimmer[4].getName());
-        h5.start();
+        if (e == true) {
+            Thread_ h5 = new Thread_(swimmer[4].getName());
+            Thread_.e = false;
+            h5.start();
         }
+        
     }
 }
