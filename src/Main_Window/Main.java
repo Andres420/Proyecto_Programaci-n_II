@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 public class Main extends JApplet {
-
+    //verificando
     private JPanel main_menu_center, main_menu_up, main_menu_down;
     private JLabel lbltittle;
     private JRadioButton jrboption1, jrboption2;
