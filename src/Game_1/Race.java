@@ -5,26 +5,38 @@ import java.util.Random;
 public class Race {
 
     static Swimmer[] swimmer;
-    static Random rnd;
+    public static int rnd;
     static int[] speed;
-    static int speed_standart = 240;
-
+    static int speed_standart = 100;
+    /*This method creates a number random speed for a swimmer*/
+    public static int Random_Speed() {
+        Random rand = new Random();
+        rnd = rand.nextInt(speed_standart) + 150;
+        return rnd;
+    }
+    /*This method creates a number random advance for a swimmer*/
+    public static int Random_Advance() {
+        Random rand = new Random();
+        rnd = rand.nextInt(10) + 10;
+        return rnd;
+    }
+    /*This method set the new speed and advance for a new race*/
     public static void Restart() {
-        swimmer[0].setSpeed(speed_standart);
-        swimmer[1].setSpeed(230);
-        swimmer[2].setSpeed(speed_standart);
-        swimmer[3].setSpeed(250);
-        swimmer[4].setSpeed(100);
+        swimmer[0].setSpeed(Random_Speed());
+        swimmer[1].setSpeed(Random_Speed());
+        swimmer[2].setSpeed(Random_Speed());
+        swimmer[3].setSpeed(Random_Speed());
+        swimmer[4].setSpeed(Random_Speed());
 
-        swimmer[0].setAdvance(10);
-        swimmer[1].setAdvance(10);
-        swimmer[2].setAdvance(10);
-        swimmer[3].setAdvance(10);
-        swimmer[4].setAdvance(10);
+        swimmer[0].setAdvance(Random_Advance());
+        swimmer[1].setAdvance(Random_Advance());
+        swimmer[2].setAdvance(Random_Advance());
+        swimmer[3].setAdvance(Random_Advance());
+        swimmer[4].setAdvance(Random_Advance());
     }
 
+    /*This method creates the swimmers and get the location and set speed*/
     public static void Register_Swimmers() {
-        rnd = new Random();
         swimmer = new Swimmer[5];
 
         swimmer[0] = new Swimmer(0, 0, 0, 0, "-");
@@ -39,11 +51,11 @@ public class Race {
         swimmer[3].setName("Mark Spitz");
         swimmer[4].setName("Alexander Popov");
 
-        swimmer[0].setSpeed(speed_standart);
-        swimmer[1].setSpeed(230);
-        swimmer[2].setSpeed(speed_standart);
-        swimmer[3].setSpeed(250);
-        swimmer[4].setSpeed(100);
+        swimmer[0].setSpeed(Random_Speed());
+        swimmer[1].setSpeed(Random_Speed());
+        swimmer[2].setSpeed(Random_Speed());
+        swimmer[3].setSpeed(Random_Speed());
+        swimmer[4].setSpeed(Random_Speed());
 
         swimmer[0].setTime(0);
         swimmer[1].setTime(0);
@@ -63,18 +75,19 @@ public class Race {
         swimmer[3].setCoorX(Swimming_Race.lblswimmer4.getLocation().x);
         swimmer[4].setCoorX(Swimming_Race.lblswimmer5.getLocation().x);
 
-        swimmer[0].setAdvance(10);
-        swimmer[1].setAdvance(10);
-        swimmer[2].setAdvance(10);
-        swimmer[3].setAdvance(10);
-        swimmer[4].setAdvance(10);
+        swimmer[0].setAdvance(Random_Advance());
+        swimmer[1].setAdvance(Random_Advance());
+        swimmer[2].setAdvance(Random_Advance());
+        swimmer[3].setAdvance(Random_Advance());
+        swimmer[4].setAdvance(Random_Advance());
     }
 
+    /*This method initializes the race*/
     public static void iniciar(boolean a, boolean b, boolean c, boolean d, boolean e) {
 
         if (a == true) {
             Thread_ h1 = new Thread_(swimmer[0].getName());
-           Thread_.a = false;
+            Thread_.a = false;
             h1.start();
         }
         if (b == true) {
@@ -97,6 +110,6 @@ public class Race {
             Thread_.e = false;
             h5.start();
         }
-        
+
     }
 }

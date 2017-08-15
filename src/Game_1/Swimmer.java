@@ -1,5 +1,5 @@
 package Game_1;
-
+/*This class creates all information for swimmers*/
 public class Swimmer {
 
     private int coorX, coorY, speed, advance;

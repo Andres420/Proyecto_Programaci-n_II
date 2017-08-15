@@ -7,11 +7,11 @@ import java.util.logging.Logger;
 public class Thread_ extends Thread {
 
     public static boolean a=true, b=true, c=true, d=true, e=true;
-
+    /*This method adds a name for the player in the variable*/
     public Thread_(String name) {
         this.setName(name);
     }
-
+    /*This method moves the images the players and create the time for each one*/
     @Override
     public void run() {
 
@@ -35,6 +35,7 @@ public class Thread_ extends Thread {
                         j = 99;
                         a = true;
                         Reports rep  = new Reports();
+                        rep.Time_long(tt_long);
                         rep.Time(tt);
                         rep.Report("Michael Phelps");
                     } else {
@@ -69,6 +70,7 @@ public class Thread_ extends Thread {
                         j = 99;
                         b = true;
                         Reports rep  = new Reports();
+                        rep.Time_long(tt_long);
                         rep.Time(tt);
                         rep.Report("Ian Thorphe");
                     } else {
@@ -102,6 +104,7 @@ public class Thread_ extends Thread {
                         j = 99;
                         c = true;
                         Reports rep  = new Reports();
+                        rep.Time_long(tt_long);
                         rep.Time(tt);
                         rep.Report("Ryan Lochte");
                     } else {
@@ -135,6 +138,7 @@ public class Thread_ extends Thread {
                         j = 99;
                         d = true;
                         Reports rep  = new Reports();
+                        rep.Time_long(tt_long);
                         rep.Time(tt);
                         rep.Report("Mark Spitz");
                     } else {
@@ -168,6 +172,7 @@ public class Thread_ extends Thread {
                         j = 99;
                         e = true;
                         Reports rep  = new Reports();
+                        rep.Time_long(tt_long);
                         rep.Time(tt);
                         rep.Report("Alexander Popov");
                     } else {

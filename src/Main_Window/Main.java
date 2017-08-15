@@ -17,17 +17,18 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 public class Main extends JApplet {
-    //verificando
+   
     private JPanel main_menu_center, main_menu_up, main_menu_down;
     private JLabel lbltittle;
     private JRadioButton jrboption1, jrboption2;
     private JButton btnstart;
     public JFrame Main_frame;
-
+    /*This method initializes the program calling other method*/
     public static void main(String[] args) {
         Main wd = new Main();
         wd.Window();
     }
+    /*This method is used if you comeback of other window*/
     public void InitWindow(){
         try{
             Main_frame.setVisible(true);
@@ -35,6 +36,7 @@ public class Main extends JApplet {
             Window();
         }
     }
+    /*This method creates the frame*/
     public void Window() {
         Main_frame = new JFrame("Juegos");
         build(Main_frame.getContentPane());
@@ -44,12 +46,12 @@ public class Main extends JApplet {
         Main_frame.setVisible(true);
 
     }
-
+    /*This method is used for try the panel, running this class*/
     @Override
     public void start() {
         build(this);
     }
-
+    /*This method calls other methods for creates the panels and set in of the frame*/
     public void build(Container pane) {
 
         pane.setLayout(new BorderLayout());
@@ -67,7 +69,7 @@ public class Main extends JApplet {
         main_menu_up = new JPanel(new FlowLayout(FlowLayout.CENTER));
         main_menu_up.add(lbltittle);
     }
-
+    /*This method creates a radiobuttons and add in the panel*/
     public void Components_1() {
         ButtonGroup buttonGroup = new ButtonGroup();
         jrboption1 = new JRadioButton("Juego de natación", false);
@@ -81,7 +83,7 @@ public class Main extends JApplet {
         main_menu_center.add(jrboption1);
         main_menu_center.add(jrboption2);
     }
-
+    /*This method creates a one button  and valid if a radiobutton is selected finally open a new window*/
     public void Components_2() {
         main_menu_down = new JPanel(new FlowLayout(FlowLayout.CENTER));
         btnstart = new JButton("Iniciar Juego");
