@@ -1,6 +1,7 @@
 package Main_Window;
 
 import Game_1.Swimming_Race;
+import Game_2.ButtonPane;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -30,11 +31,7 @@ public class Main extends JApplet {
     }
     /*This method is used if you comeback of other window*/
     public void InitWindow(){
-        try{
-            Main_frame.setVisible(true);
-        }catch(Exception e){
             Window();
-        }
     }
     /*This method creates the frame*/
     public void Window() {
@@ -58,7 +55,6 @@ public class Main extends JApplet {
         Components();
         Components_1();
         Components_2();
-        pane.setLayout(new BorderLayout());
         pane.add(main_menu_up, BorderLayout.NORTH);
         pane.add(main_menu_center, BorderLayout.CENTER);
         pane.add(main_menu_down, BorderLayout.SOUTH);
@@ -74,7 +70,6 @@ public class Main extends JApplet {
         ButtonGroup buttonGroup = new ButtonGroup();
         jrboption1 = new JRadioButton("Juego de natación", false);
         jrboption2 = new JRadioButton("Juego preguntas y respuestas", false);
-        jrboption2.setEnabled(false);
 
         buttonGroup.add(jrboption1);
         buttonGroup.add(jrboption2);
@@ -87,18 +82,18 @@ public class Main extends JApplet {
     public void Components_2() {
         main_menu_down = new JPanel(new FlowLayout(FlowLayout.CENTER));
         btnstart = new JButton("Iniciar Juego");
-        ActionListener listener = new ActionListener() {
+        ActionListener listener;
+        listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (jrboption1.isSelected() == true) {
-                    Main_frame.setVisible(false);
-
+                    Main_frame.dispose();
                     Swimming_Race wd = new Swimming_Race();
                     wd.InitWindow();
                     
                 } else if (jrboption2.isSelected() == true) {
-                    JOptionPane.showMessageDialog(null, "Opcion2");
-                    
+                    ButtonPane.Init();
+                    Main_frame.dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese una opcion valida");
                 }

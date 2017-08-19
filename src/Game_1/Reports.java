@@ -78,29 +78,29 @@ class Reports {
     }
     /*This method checks which player is best player by wins*/
     public void Report3() {
-        if (Swimming_Race.swimmer1wins > Swimming_Race.swimmer2wins && Swimming_Race.swimmer1wins > Swimming_Race.swimmer3wins && Swimming_Race.swimmer1wins > Swimming_Race.swimmer4wins && Swimming_Race.swimmer1wins > Swimming_Race.swimmer5wins) {
+        if (Swimming_Race.swimmer1wins >= Swimming_Race.swimmer2wins && Swimming_Race.swimmer1wins >= Swimming_Race.swimmer3wins && Swimming_Race.swimmer1wins >= Swimming_Race.swimmer4wins && Swimming_Race.swimmer1wins >= Swimming_Race.swimmer5wins) {
             for_text = for_text + "\nMaximo ganador= \n" + Race.swimmer[0].getName();
-        } else if (Swimming_Race.swimmer2wins > Swimming_Race.swimmer1wins && Swimming_Race.swimmer2wins > Swimming_Race.swimmer3wins && Swimming_Race.swimmer2wins > Swimming_Race.swimmer4wins && Swimming_Race.swimmer2wins > Swimming_Race.swimmer5wins) {
+        } else if (Swimming_Race.swimmer2wins >= Swimming_Race.swimmer1wins && Swimming_Race.swimmer2wins >= Swimming_Race.swimmer3wins && Swimming_Race.swimmer2wins >= Swimming_Race.swimmer4wins && Swimming_Race.swimmer2wins >= Swimming_Race.swimmer5wins) {
             for_text = for_text + "\nMaximo ganador= \n" + Race.swimmer[1].getName();
-        } else if (Swimming_Race.swimmer3wins > Swimming_Race.swimmer1wins && Swimming_Race.swimmer3wins > Swimming_Race.swimmer2wins && Swimming_Race.swimmer3wins > Swimming_Race.swimmer4wins && Swimming_Race.swimmer3wins > Swimming_Race.swimmer5wins) {
+        } else if (Swimming_Race.swimmer3wins >= Swimming_Race.swimmer1wins && Swimming_Race.swimmer3wins >= Swimming_Race.swimmer2wins && Swimming_Race.swimmer3wins >= Swimming_Race.swimmer4wins && Swimming_Race.swimmer3wins >= Swimming_Race.swimmer5wins) {
             for_text = for_text + "\nMaximo ganador= \n" + Race.swimmer[2].getName();
-        } else if (Swimming_Race.swimmer4wins > Swimming_Race.swimmer1wins && Swimming_Race.swimmer4wins > Swimming_Race.swimmer2wins && Swimming_Race.swimmer4wins > Swimming_Race.swimmer3wins && Swimming_Race.swimmer4wins > Swimming_Race.swimmer5wins) {
+        } else if (Swimming_Race.swimmer4wins >= Swimming_Race.swimmer1wins && Swimming_Race.swimmer4wins >= Swimming_Race.swimmer2wins && Swimming_Race.swimmer4wins >= Swimming_Race.swimmer3wins && Swimming_Race.swimmer4wins >= Swimming_Race.swimmer5wins) {
             for_text = for_text + "\nMaximo ganador= \n" + Race.swimmer[3].getName();
-        } else if (Swimming_Race.swimmer5wins > Swimming_Race.swimmer1wins && Swimming_Race.swimmer5wins > Swimming_Race.swimmer2wins && Swimming_Race.swimmer5wins > Swimming_Race.swimmer3wins && Swimming_Race.swimmer5wins > Swimming_Race.swimmer4wins) {
+        } else if (Swimming_Race.swimmer5wins >= Swimming_Race.swimmer1wins && Swimming_Race.swimmer5wins >= Swimming_Race.swimmer2wins && Swimming_Race.swimmer5wins >= Swimming_Race.swimmer3wins && Swimming_Race.swimmer5wins >= Swimming_Race.swimmer4wins) {
             for_text = for_text + "\nMaximo ganador= \n" + Race.swimmer[4].getName();
         }
     }
     /*This method checks which player is worst player by defeats*/
     public void Report4() {
-        if (Swimming_Race.swimmer1defeats < Swimming_Race.swimmer2defeats && Swimming_Race.swimmer1defeats < Swimming_Race.swimmer3defeats && Swimming_Race.swimmer1defeats < Swimming_Race.swimmer4defeats && Swimming_Race.swimmer1defeats < Swimming_Race.swimmer5defeats) {
+        if (Swimming_Race.swimmer1defeats <= Swimming_Race.swimmer2defeats && Swimming_Race.swimmer1defeats <= Swimming_Race.swimmer3defeats && Swimming_Race.swimmer1defeats <= Swimming_Race.swimmer4defeats && Swimming_Race.swimmer1defeats <= Swimming_Race.swimmer5defeats) {
             for_text = for_text + "\nMás derrotas= \n" + Race.swimmer[0].getName();
-        } else if (Swimming_Race.swimmer2defeats < Swimming_Race.swimmer1defeats && Swimming_Race.swimmer2defeats < Swimming_Race.swimmer3defeats && Swimming_Race.swimmer2defeats < Swimming_Race.swimmer4defeats && Swimming_Race.swimmer2defeats < Swimming_Race.swimmer5defeats) {
+        } else if (Swimming_Race.swimmer2defeats <= Swimming_Race.swimmer1defeats && Swimming_Race.swimmer2defeats <= Swimming_Race.swimmer3defeats && Swimming_Race.swimmer2defeats <= Swimming_Race.swimmer4defeats && Swimming_Race.swimmer2defeats <= Swimming_Race.swimmer5defeats) {
             for_text = for_text + "\nMás derrotas= \n" + Race.swimmer[1].getName();
-        } else if (Swimming_Race.swimmer3defeats < Swimming_Race.swimmer1defeats && Swimming_Race.swimmer3defeats < Swimming_Race.swimmer2defeats && Swimming_Race.swimmer3defeats < Swimming_Race.swimmer4defeats && Swimming_Race.swimmer3defeats < Swimming_Race.swimmer5defeats) {
+        } else if (Swimming_Race.swimmer3defeats <= Swimming_Race.swimmer1defeats && Swimming_Race.swimmer3defeats <= Swimming_Race.swimmer2defeats && Swimming_Race.swimmer3defeats <= Swimming_Race.swimmer4defeats && Swimming_Race.swimmer3defeats <= Swimming_Race.swimmer5defeats) {
             for_text = for_text + "\nMás derrotas= \n" + Race.swimmer[2].getName();
-        } else if (Swimming_Race.swimmer4defeats < Swimming_Race.swimmer1defeats && Swimming_Race.swimmer4defeats < Swimming_Race.swimmer2defeats && Swimming_Race.swimmer4defeats < Swimming_Race.swimmer3defeats && Swimming_Race.swimmer4defeats < Swimming_Race.swimmer5defeats) {
+        } else if (Swimming_Race.swimmer4defeats <= Swimming_Race.swimmer1defeats && Swimming_Race.swimmer4defeats <= Swimming_Race.swimmer2defeats && Swimming_Race.swimmer4defeats <= Swimming_Race.swimmer3defeats && Swimming_Race.swimmer4defeats <= Swimming_Race.swimmer5defeats) {
             for_text = for_text + "\nMás derrotas= \n" + Race.swimmer[3].getName();
-        } else if (Swimming_Race.swimmer5defeats < Swimming_Race.swimmer1defeats && Swimming_Race.swimmer5defeats < Swimming_Race.swimmer2defeats && Swimming_Race.swimmer5defeats < Swimming_Race.swimmer3defeats && Swimming_Race.swimmer5defeats < Swimming_Race.swimmer4defeats) {
+        } else if (Swimming_Race.swimmer5defeats <= Swimming_Race.swimmer1defeats && Swimming_Race.swimmer5defeats <= Swimming_Race.swimmer2defeats && Swimming_Race.swimmer5defeats <= Swimming_Race.swimmer3defeats && Swimming_Race.swimmer5defeats <= Swimming_Race.swimmer4defeats) {
             for_text = for_text + "\nMás derrotas= \n" + Race.swimmer[4].getName();
         }
 

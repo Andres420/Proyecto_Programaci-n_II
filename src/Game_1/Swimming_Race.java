@@ -25,16 +25,6 @@ public class Swimming_Race extends JApplet {
     public static int limit = 0;
     /*This method create the window if you stay in the main menu*/
     public void InitWindow() {
-        try {
-            frame.setVisible(true);
-            btnstart.setEnabled(true);
-            Race.Register_Swimmers();
-            lblswimmer1.setText(Race.swimmer[0].getName());
-            lblswimmer2.setText(Race.swimmer[1].getName());
-            lblswimmer3.setText(Race.swimmer[2].getName());
-            lblswimmer4.setText(Race.swimmer[3].getName());
-            lblswimmer5.setText(Race.swimmer[4].getName());
-        } catch (Exception ev) {
             Windows();
             btnstart.setEnabled(true);
             Race.Register_Swimmers();
@@ -43,9 +33,6 @@ public class Swimming_Race extends JApplet {
             lblswimmer3.setText(Race.swimmer[2].getName());
             lblswimmer4.setText(Race.swimmer[3].getName());
             lblswimmer5.setText(Race.swimmer[4].getName());
-            
-        }
-        
     }
     /*This method creates the window or frame*/
     private void Windows() {
@@ -159,7 +146,7 @@ public class Swimming_Race extends JApplet {
         ActionListener button_btnback = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
+                frame.dispose();
                 Main mn = new Main();
                 mn.InitWindow();
             }
