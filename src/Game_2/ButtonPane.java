@@ -23,6 +23,7 @@ public class ButtonPane extends JPanel {
     public static JLabel corrects, corrects_q, incorrects, incorrects_q;
     public static JPanel up = new JPanel(), down = new JPanel();
     public static JButton[][] buttons;
+    public static ArrayList<Integer> list_questions = new ArrayList<Integer>();
     public static ArrayList list = new ArrayList<>();
     public static int create = 0;
     public static int pos_y, pos_x, answers_correct = 0, answers_incorrect = 0, wildcard = 0;
@@ -33,6 +34,8 @@ public class ButtonPane extends JPanel {
     ImageIcon icon_como = new ImageIcon(image_como.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
     ImageIcon image_finish = new ImageIcon(getClass().getResource("/Image/meta.jpg"));
     ImageIcon icon_finish = new ImageIcon(image_finish.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+    ImageIcon image_player = new ImageIcon(getClass().getResource("/Image/yo.png"));
+    ImageIcon icon_player = new ImageIcon(image_player.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
     int num_1 = 11;
     static int have_posibily = 1;
     int wildcard_enabled = 1;
@@ -75,6 +78,7 @@ public class ButtonPane extends JPanel {
                         buttons[i][j].setIcon(icon_finish);
                         buttons[i][j].setText("f");
                         Logic_Buttons.Action_Listener(i, j);
+                        buttons[0][0].setIcon(icon_player);
                     } else {
                         buttons[i][j] = new JButton(".");
                         Logic_Buttons.Action_Listener(i, j);
@@ -93,6 +97,8 @@ public class ButtonPane extends JPanel {
                                         buttons[curRow][curCol].setEnabled(false);
                                         buttons[curRow][curCol].setRequestFocusEnabled(false);
                                         buttons[curRow - 1][curCol].requestFocus();
+                                        buttons[curRow - 1][curCol].setIcon(icon_player);
+                                        buttons[curRow][curCol].setIcon(null);
                                         pos_y = curRow - 1;
                                         pos_x = curCol;
                                         Logic_Buttons.Questions(pos_y, pos_x);
@@ -105,6 +111,8 @@ public class ButtonPane extends JPanel {
                                         buttons[curRow][curCol].setEnabled(false);
                                         buttons[curRow][curCol].setRequestFocusEnabled(false);
                                         buttons[curRow + 1][curCol].requestFocus();
+                                        buttons[curRow + 1][curCol].setIcon(icon_player);
+                                        buttons[curRow][curCol].setIcon(null);
                                         pos_y = curRow + 1;
                                         pos_x = curCol;
                                         Logic_Buttons.Questions(pos_y, pos_x);
@@ -117,6 +125,8 @@ public class ButtonPane extends JPanel {
                                         buttons[curRow][curCol].setEnabled(false);
                                         buttons[curRow][curCol].setRequestFocusEnabled(false);
                                         buttons[curRow][curCol - 1].requestFocus();
+                                        buttons[curRow][curCol - 1].setIcon(icon_player);
+                                        buttons[curRow][curCol].setIcon(null);
                                         pos_y = curRow;
                                         pos_x = curCol - 1;
                                         Logic_Buttons.Questions(pos_y, pos_x);
@@ -129,6 +139,8 @@ public class ButtonPane extends JPanel {
                                         buttons[curRow][curCol].setEnabled(false);
                                         buttons[curRow][curCol].setRequestFocusEnabled(false);
                                         buttons[curRow][curCol + 1].requestFocus();
+                                        buttons[curRow][curCol + 1].setIcon(icon_player);
+                                        buttons[curRow][curCol].setIcon(null);
                                         pos_y = curRow;
                                         pos_x = curCol + 1;
                                         Logic_Buttons.Questions(pos_y, pos_x);
@@ -161,7 +173,6 @@ public class ButtonPane extends JPanel {
                     Strongbox dialog = new Strongbox(new javax.swing.JFrame(), true);
                     dialog.setLocationRelativeTo(null);
                     dialog.setVisible(true);
-                    f.setVisible(false);
                 } else if (answers_correct > 0 && have_posibily == 1) {
                     Strongbox dialog = new Strongbox(new javax.swing.JFrame(), true);
                     dialog.setLocationRelativeTo(null);

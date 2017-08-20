@@ -15,27 +15,34 @@ class Logic_Buttons {
     /*This method ask and receive the answer of the player and check if is correct or incorrect
     If the answer is incorrect add in the frame other wall*/
     public static void Questions(int a, int b) {
+        Random rnd = new Random();
         boolean ans = false;
+        int num_of_question;
+        //crear el random para preguntas
+        while(true){
+            num_of_question = rnd.nextInt(ButtonPane.list.size() - 1);
+            if(((num_of_question % 2) == 0) && !(ButtonPane.list_questions.contains(num_of_question))){
+                ButtonPane.list_questions.add(num_of_question);
+                break;
+            }
+        }
         if (ButtonPane.buttons[a][b].getText().equals(".")) {
-            int answer = JOptionPane.showOptionDialog(null, ButtonPane.list.get(0), "Pregunta", JOptionPane.YES_NO_CANCEL_OPTION,
+            int answer = JOptionPane.showOptionDialog(null, ButtonPane.list.get(num_of_question), "Pregunta", JOptionPane.YES_NO_CANCEL_OPTION,
                     JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Verdadero", "Falso"}, "");
             if (answer == 1) {
                 ans = false;
             } else if (answer == 0) {
                 ans = true;
             }
-            if (Boolean.valueOf((boolean) ButtonPane.list.get(1)) == ans) {
+            if (Boolean.valueOf((boolean) ButtonPane.list.get(num_of_question+1)) == ans) {
                 JOptionPane.showMessageDialog(null, "CORRECTO");
                 ButtonPane.answers_correct += 1;
                 ButtonPane.corrects_q.setText(ButtonPane.answers_correct + "");
-                ButtonPane.list.remove(0);
-                ButtonPane.list.remove(0);
             } else {
                 int infinite = 0;
                 JOptionPane.showMessageDialog(null, "INCORRECTO");
                 Logic_Buttons lb = new Logic_Buttons();
                 lb.New_Image();
-                Random rnd = new Random();
                 while (true) {
                     num_y = rnd.nextInt(8);
                     num_x = rnd.nextInt(5);
@@ -51,8 +58,6 @@ class Logic_Buttons {
                 }
                 ButtonPane.answers_incorrect += 1;
                 ButtonPane.incorrects_q.setText(ButtonPane.answers_incorrect + "");
-                ButtonPane.list.remove(0);
-                ButtonPane.list.remove(0);
             }
         } else if (ButtonPane.buttons[a][b].getText().equals("p")) {
             JOptionPane.showMessageDialog(null, "Tocaste una pared perdistes");
@@ -62,7 +67,7 @@ class Logic_Buttons {
             ButtonPane.wildcard += 1;
         } else if (ButtonPane.buttons[a][b].getText().equals("f")) {
             int difference = ButtonPane.answers_correct + ButtonPane.answers_incorrect;
-            if (difference <= -3 || difference >= 3) {
+            if (difference < -3 || difference > 3) {
                 JOptionPane.showMessageDialog(null, "Felicidades Ganastes");
                 ButtonPane.list.removeAll(ButtonPane.list);
                 ButtonPane.CloseWindow();

@@ -161,7 +161,8 @@ public class Strongbox extends javax.swing.JDialog {
     /*This method close the window if the time ends*/
     public void close() {
         t.stop();
-        dispose();
+        this.dispose();
+        ButtonPane.f.setVisible(true);
     }
     private Timer t;
     private int s;
