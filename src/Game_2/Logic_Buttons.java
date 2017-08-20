@@ -12,6 +12,8 @@ class Logic_Buttons {
     public static ImageIcon image, icon, image_como, icon_como, image_finish, icon_finish;
     static int num_y = 0, num_x = 0;
 
+    /*This method ask and receive the answer of the player and check if is correct or incorrect
+    If the answer is incorrect add in the frame other wall*/
     public static void Questions(int a, int b) {
         boolean ans = false;
         if (ButtonPane.buttons[a][b].getText().equals(".")) {
@@ -41,9 +43,9 @@ class Logic_Buttons {
                         ButtonPane.buttons[num_y][num_x].setIcon(icon);
                         ButtonPane.buttons[num_y][num_x].setText("p");
                         break;
-                    }else if(infinite == 40){
+                    } else if (infinite == 40) {
                         break;
-                    }else{
+                    } else {
                         infinite += 1;
                     }
                 }
@@ -72,25 +74,14 @@ class Logic_Buttons {
         }
     }
 
+    /*This method call the images for the method Questions*/
     private void New_Image() {
         image = new ImageIcon(getClass().getResource("/Image/pared.jpg"));
         icon = new ImageIcon(image.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
     }
 
-    public void Image() {
-        image = new ImageIcon(getClass().getResource("/Image/pared.jpg"));
-        icon = new ImageIcon(image.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
-        image_como = new ImageIcon(getClass().getResource("/Image/comodin.jpg"));
-        icon_como = new ImageIcon(image_como.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
-        image_finish = new ImageIcon(getClass().getResource("/Image/meta.jpg"));
-        icon_finish = new ImageIcon(image_finish.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
-
-    }
-
+    /* This method adds the actionlistener for all buttons to remove the image from the wall */
     public static void Action_Listener(int a, int b) {
-        Logic_Buttons lb = new Logic_Buttons();
-        lb.Image();
-        ButtonPane.f.getFocusOwner();
         ActionListener listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

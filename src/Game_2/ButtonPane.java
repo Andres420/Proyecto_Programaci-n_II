@@ -37,16 +37,17 @@ public class ButtonPane extends JPanel {
     static int have_posibily = 1;
     int wildcard_enabled = 1;
 
+    /*This method close the window and call the main menu*/
     static void CloseWindow() {
         f.dispose();
         Main mn = new Main();
         mn.InitWindow();
     }
-    
+
+    /*This builder creates buttons and add actionlistener in other class, keylistener */
     public ButtonPane(int row, int col) {
         super(new GridLayout(row, col));
         buttons = new JButton[row][col];
-
         for (int i = 0; i < buttons.length; i++) {
             for (int j = 0; j < buttons[i].length; j++) {
                 final int curRow = i;
@@ -82,7 +83,6 @@ public class ButtonPane extends JPanel {
                     buttons[i][j] = new JButton(".");
                     Logic_Buttons.Action_Listener(i, j);
                 }
-
                 buttons[i][j].addKeyListener(new KeyAdapter() {
                     @Override
                     public void keyPressed(KeyEvent e) {
@@ -97,7 +97,6 @@ public class ButtonPane extends JPanel {
                                         pos_x = curCol;
                                         Logic_Buttons.Questions(pos_y, pos_x);
                                     }
-
                                 }
                                 break;
                             case KeyEvent.VK_DOWN:
@@ -122,7 +121,6 @@ public class ButtonPane extends JPanel {
                                         pos_x = curCol - 1;
                                         Logic_Buttons.Questions(pos_y, pos_x);
                                     }
-
                                 }
                                 break;
                             case KeyEvent.VK_RIGHT:
@@ -148,6 +146,7 @@ public class ButtonPane extends JPanel {
         }
     }
 
+    /*This method creates the panel up and down, add a button of wildcard and call other class*/
     public ButtonPane() {
         corrects = new JLabel("Correctas: ");
         corrects_q = new JLabel("0");
@@ -170,7 +169,7 @@ public class ButtonPane extends JPanel {
                     answers_correct -= 1;
                     have_posibily = 0;
                     corrects_q.setText(ButtonPane.answers_correct + "");
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(null, "No tienes puntos suficientes o ya lo usastes\no no has pasado por el comodin");
                 }
             }
@@ -198,6 +197,7 @@ public class ButtonPane extends JPanel {
         down.add(btnback);
     }
 
+    /*This method restart the stats*/
     public static void Stats() {
         incorrects_q.setText(0 + "");
         corrects_q.setText(0 + "");
@@ -207,6 +207,7 @@ public class ButtonPane extends JPanel {
         have_posibily = 1;
     }
 
+    /*This method creates the JFrame*/
     public static void Init() {
         have_posibily = 1;
         answers_correct = 0;

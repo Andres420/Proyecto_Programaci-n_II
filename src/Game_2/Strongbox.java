@@ -9,8 +9,9 @@ import javax.swing.JOptionPane;
 public class Strongbox extends javax.swing.JDialog {
 
     String random_string = "", String_num_player;
-    int random, int_of_player,incorrect = 1;
+    int random, int_of_player, incorrect = 1;
 
+    /*This method initialize and create a JDialog for the wildcard of the game*/
     public Strongbox(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -22,10 +23,9 @@ public class Strongbox extends javax.swing.JDialog {
             random_string += String.valueOf(rand);
         }
         random = Integer.parseInt(random_string);
-        System.out.println(random);
-        
     }
 
+    /*This method create all frames and add the position of per object*/
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -133,7 +133,7 @@ public class Strongbox extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /*This method initialize the timer and active JSpinner*/
     private void btnstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnstartActionPerformed
         t.start();
         btnstart.setEnabled(false);
@@ -142,7 +142,7 @@ public class Strongbox extends javax.swing.JDialog {
         jsppos2.setEnabled(true);
         jsppos3.setEnabled(true);
     }//GEN-LAST:event_btnstartActionPerformed
-
+    /*This method check if the number of the player is equals a number create for the program*/
     private void btncheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncheckActionPerformed
         String_num_player = jsppos1.getValue().toString();
         String_num_player += jsppos2.getValue().toString();
@@ -154,17 +154,18 @@ public class Strongbox extends javax.swing.JDialog {
             ButtonPane.CloseWindow();
             dispose();
         } else {
-            lblanswer.setText("Incorrecto: "+incorrect);
+            lblanswer.setText("Incorrecto: " + incorrect);
             incorrect++;
         }
     }//GEN-LAST:event_btncheckActionPerformed
+    /*This method close the window if the time ends*/
     public void close() {
         t.stop();
         dispose();
-        ButtonPane.f.setVisible(true);
     }
     private Timer t;
     private int s;
+    /*This is an anonymous method that displays time in the window*/
     private ActionListener actions = new ActionListener() {
 
         @Override
@@ -181,6 +182,7 @@ public class Strongbox extends javax.swing.JDialog {
 
     };
 
+    /*This method update the timer in the window*/
     private void update() {
         String tiempo = "0:" + s;
         lbltimer.setText(tiempo);
